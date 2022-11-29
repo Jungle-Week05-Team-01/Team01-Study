@@ -39,37 +39,41 @@ insert, delete 연산 모두 search의 영향을 받는다.
 
 <br>
 
-```c
+```python
 //@self : 균형 이진 트리
 //@z : z를 기준으로 rotation을 수행하라
+//@self : 균형 이진 트리
+//@z : z를 기준으로 rotation을 수행하라
+
 def rotateRight(self, z):
-		if not z : return // z가 NIL일 때
-		x = z.left
+	if not z : return // z가 NIL일 때
+	x = z.left
 
-		if not x : return // z의 left node NIL
-		b = x.right
+	if not x : return // z의 left node NIL
+	b = x.right
 
-		x.parent = z.parent // first link rotation
+	x.parent = z.parent // first link rotation
 
-		// z의 parent가 NIL -> 루트일 때
-		// second link rotation
-		if z.parent:
-				if z.parent.left is z:
-							z.parent.left = x
-				else:
-							z.parent.right = x
+	// z의 parent가 NIL -> 루트일 때
+	// second link rotation
+	if z.parent:
+			if z.parent.left is z:
+						z.parent.left = x
+			else:
+						z.parent.right = x
 
-		x.right = z // third link rotation
-		z.parent = x // fourth link rotation
-		z.left = b // fifth link rotation
 
-		// sixth link rotation
-		if b: // b가 NIL이 아니면
-				b.parent = z
+	x.right = z // third link rotation
+	z.parent = x // fourth link rotation
+	z.left = b // fifth link rotation
 
-		// 하필 z가 root였다면 root 정보도 update
-		if self.root is z:
-				self.root = x
+	// sixth link rotation
+	if b: // b가 NIL이 아니면
+			b.parent = z
+
+	// 하필 z가 root였다면 root 정보도 update
+	if self.root is z:
+			self.root = x
 ```
 
 <br>
@@ -83,6 +87,9 @@ def rotateRight(self, z):
 : 가장 유명하고 많이 사용되는 균형 이진 탐색 트리
 
 <br>
+
+![image](https://user-images.githubusercontent.com/67156494/204576819-25a71f4a-5efb-4cf3-990c-36a3a9541003.png)
+
 
 ⭐ 특이하게 leaf node는 NIL이다.
 
@@ -142,4 +149,14 @@ $bh(v)$ = v에서 v를 제외한 leaf node까지의 black 노드의 개수
 
 <br>
 
+## 🔗 Reference
+
+- ****자료구조 - 균형이진탐색트리 - 정의와 회전****
+	([https://www.youtube.com/watch?v=Kuw0f3-E-Hw](https://www.youtube.com/watch?v=Kuw0f3-E-Hw))
+- ****자료구조 - 균형탐색이진트리 - Red-Black 트리****
+	([https://www.youtube.com/watch?v=SHdYv41iCmE&t=1s](https://www.youtube.com/watch?v=SHdYv41iCmE&t=1s))
+
 <br>
+
+<br>
+
