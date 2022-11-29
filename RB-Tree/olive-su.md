@@ -42,8 +42,6 @@ insert, delete 연산 모두 search의 영향을 받는다.
 ```python
 //@self : 균형 이진 트리
 //@z : z를 기준으로 rotation을 수행하라
-//@self : 균형 이진 트리
-//@z : z를 기준으로 rotation을 수행하라
 
 def rotateRight(self, z):
 	if not z : return // z가 NIL일 때
@@ -57,11 +55,10 @@ def rotateRight(self, z):
 	// z의 parent가 NIL -> 루트일 때
 	// second link rotation
 	if z.parent:
-			if z.parent.left is z:
-						z.parent.left = x
-			else:
-						z.parent.right = x
-
+		if z.parent.left is z:
+			z.parent.left = x
+		else:
+			z.parent.right = x
 
 	x.right = z // third link rotation
 	z.parent = x // fourth link rotation
