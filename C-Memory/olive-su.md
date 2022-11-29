@@ -1,3 +1,5 @@
+## C의 메모리 관리
+
 - 헤더파일로 `<stdlib.h>` 나 `<malloc.h>` 를 포함시켜야한다.
 - 메모리 할당 함수 : `malloc`
 - 메모리 할당 및 초기화 : `calloc`
@@ -6,8 +8,9 @@
 - 동적할당 : 프로그램 실행 중에 동적으로 메모리를 할당하는 것
 
 
+![image](https://user-images.githubusercontent.com/67156494/204577744-eb636d70-62b0-4f86-bed5-df75b102c25c.png)
 
-<br>
+
 
 
 
@@ -27,10 +30,13 @@
   - 메모리의 크기에 따라 메모리가 낭비되거나 필요에 따른 메모리 공간이 부족해 프로그램을 다시 짜야하는 경우가 발생
 
 
+<br>
+
 
 <br>
 
 
+## malloc
 
 - `void* malloc(size_t size);`
   - malloc이 `void*` 를 리턴하는 이유
@@ -38,7 +44,10 @@
   - 메모리 할당에 실패하면 `null` 을 반환한다.
 
 
+![image](https://user-images.githubusercontent.com/67156494/204578381-2f1fac0d-a6ce-4ba8-81d5-cb903f8a8ef9.png)
 
+
+<br>
 
 
 ```c
@@ -65,6 +74,10 @@ BOOK* p = (BOOK*) malloc (sizeof(BOOK) * 30;
 
 <br>
 
+<br>
+
+
+## calloc
 
 
 - `void* calloc(size_t num, size_t size);`
@@ -154,6 +167,10 @@ Program ended with exit code: 0
 
 <br>
 
+<br>
+
+## realloc
+
 
 
 - `void* realloc(void* ptr, size_t new_size);`
@@ -233,25 +250,12 @@ int main(void)
 Program ended with exit code: 0
 ```
 
-💡 `EXIT_SUCCESS` , `EXIT_FAILURE`
-
-: **`EXIT_SUCCESS`** 및 `**EXIT_FAILURE**` 상수는 및 `_exit` 함수에 `exit` 대한 인수이며 및 함수의 `atexit_onexit` 반환 값
-
-- (https://learn.microsoft.com/ko-kr/cpp/c-runtime-library/exit-success-exit-failure?view=msvc-170)
-
+<br>
 
 
 <br>
 
-
-
-- thread-safe
-  - 멀티 스레드 프로그래밍 환경에서 여러 스레드로부터 동시에 접근이 이루어져도 프로그램의 실행에 문제가 없음을 뜻한다.
-
-
-
-<br>
-
+## free
 
 
 - `void free(void* ptr);`
@@ -268,6 +272,30 @@ Program ended with exit code: 0
 
 - `gcc -g3 -fsanitize=address` 로 컴파일
 - `valgrind` :  메모리 누수 검사 프로그램
+
+
+<br>
+
+
+💡 `EXIT_SUCCESS` , `EXIT_FAILURE`
+
+: **`EXIT_SUCCESS`** 및 **`EXIT_FAILURE`** 상수는 및 `_exit` 함수에 `exit` 대한 인수이며 및 함수의 `atexit_onexit` 반환 값
+
+- Ref. https://learn.microsoft.com/ko-kr/cpp/c-runtime-library/exit-success-exit-failure?view=msvc-170
+
+
+<br>
+
+
+<br>
+
+
+
+- thread-safe
+  - 멀티 스레드 프로그래밍 환경에서 여러 스레드로부터 동시에 접근이 이루어져도 프로그램의 실행에 문제가 없음을 뜻한다.
+
+
+
 
 
 
@@ -298,7 +326,7 @@ Program ended with exit code: 0
 
 <br>
 
-
+<br>
 
 <br>
 
@@ -323,3 +351,10 @@ Program ended with exit code: 0
 - **c - Is malloc thread-safe? - Stack Overflow**
 
   (https://stackoverflow.com/questions/855763/is-malloc-thread-safe)
+  
+
+<br>
+
+<br>
+
+<br>
